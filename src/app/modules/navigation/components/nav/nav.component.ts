@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.userService.userClaims().subscribe(
       res => {
-        alert(JSON.stringify(res))
+       // alert(JSON.stringify(res))
         this.userDetails = res;
       },
       err => {

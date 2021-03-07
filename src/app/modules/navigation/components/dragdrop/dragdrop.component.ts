@@ -23,10 +23,13 @@ export class DragdropComponent {
   ];
 
   drop(event: CdkDragDrop<string[]>) {
+    console.log( event.container.data);
     if (event.previousContainer === event.container) {
+      console.log(event.container.data);
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
      
     } else {
+      console.log(event.container.data);
       transferArrayItem(event.previousContainer.data,
           event.container.data,
           event.previousIndex,

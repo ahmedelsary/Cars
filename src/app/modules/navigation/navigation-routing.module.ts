@@ -1,33 +1,31 @@
+import { PurchaseComponent } from './components/purchase/purchase.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
-import { AddressComponent } from './components/address/address.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { TableComponent } from './components/table/table.component';
-import { DragdropComponent } from './components/dragdrop/dragdrop.component';
+import { VisitComponent } from './components/visit/visit.component';
 
 const routes: Routes = [
   {
     path: "",
     component: NavComponent,
     children:[
-      {
-        path: "address",
-        component: AddressComponent
-      },
+
       {
         path: "dashboard",
         component: DashboardComponent
       },
+
       {
-        path: "table",
-        component: TableComponent
+        path: "visit",
+        component: VisitComponent
       },
       {
-        path: "drag-drop",
-        component: DragdropComponent
+        path: "purchase",
+        component: PurchaseComponent
       },
-    
+
     ]
   },
 

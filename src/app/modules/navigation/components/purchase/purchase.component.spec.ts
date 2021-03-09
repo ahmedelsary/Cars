@@ -1,15 +1,15 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DragdropComponent } from './dragdrop.component';
+import { PurchaseComponent } from './purchase.component';
 
-describe('DragdropComponent', () => {
-  let component: DragdropComponent;
-  let fixture: ComponentFixture<DragdropComponent>;
+describe('PurchaseComponent', () => {
+  let component: PurchaseComponent;
+  let fixture: ComponentFixture<PurchaseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DragdropComponent ],
+      declarations: [ PurchaseComponent ],
       imports: [
         NoopAnimationsModule,
         DragDropModule,
@@ -18,7 +18,7 @@ describe('DragdropComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DragdropComponent);
+    fixture = TestBed.createComponent(PurchaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

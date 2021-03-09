@@ -1,0 +1,115 @@
+<form [formGroup]="visitForm" novalidate (ngSubmit)="onSubmit(visitForm.value)">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Visit Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Customer Name" formControlName="customerName">
+            <mat-error *ngIf="visitForm.controls['customerName'].hasError('required')">
+              Customer Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <mat-error *ngIf="visitForm.controls['address'].hasError('required')">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Telephone" formControlName="telephone">
+            <mat-error *ngIf="visitForm.controls['customerName'].hasError('required')">
+              Telephone is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Date Of Visit" formControlName="dateofVisit" type="date" >
+            <mat-error *ngIf="visitForm.controls['dateofVisit'].hasError('required')">
+              Date Of Visit"is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="vehicleModel">
+            <mat-radio-button value="0">BRZ</mat-radio-button>
+            <mat-radio-button value="1">WRX</mat-radio-button>
+            <mat-radio-button value="2">Legacy</mat-radio-button>
+            <mat-radio-button value="3">Forester</mat-radio-button>
+            <mat-radio-button value="4">Crosstrek</mat-radio-button>
+            <mat-radio-button value="5">Outback</mat-radio-button>
+            <mat-radio-button value="6">Ascent</mat-radio-button>
+
+          </mat-radio-group>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Heard From"  formControlName="heardFrom">
+              <mat-option *ngFor="let ad of ads" [value]="ad.value">
+                {{ ad.name }}
+              </mat-option>
+
+              <mat-option >other</mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </div>
+          <ng-container *ngIf="!visitForm.controls['heardFrom'].value">
+
+
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Other" formControlName="other">
+
+          </mat-form-field>
+        </div>
+
+        </ng-container>
+
+        </div>
+
+
+
+
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

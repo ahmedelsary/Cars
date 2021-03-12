@@ -1,3 +1,4 @@
+import { CustomerService } from './../../shared/customer.service';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -28,13 +29,15 @@ import { UserService } from '../../shared/user.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '../../interceptors/auth.interceptor';
 import { VisitComponent } from './components/visit/visit.component';
+import { CustomersComponent } from './components/customers/customers.component';
 
 
 @NgModule({
   declarations: [NavComponent,
       DashboardComponent,
       VisitComponent,
-      PurchaseComponent
+      PurchaseComponent,
+      CustomersComponent
     ],
   imports: [
     CommonModule,
@@ -59,6 +62,7 @@ import { VisitComponent } from './components/visit/visit.component';
     DragDropModule
   ],
   providers:[
+    CustomerService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,

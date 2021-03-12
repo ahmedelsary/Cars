@@ -1,3 +1,5 @@
+
+
 export class Customer {
   id:number;
   customerName:string;
@@ -5,10 +7,12 @@ export class Customer {
   salesRepresentativeName:string;
   address?:string;
   telephone?:string;
-  dateofVisit:Date
+  dateofVisit:Date;
   vehicleModel:number;
   heardFrom:string;
   purchase:boolean
   constructor(){
   }
 }
+
+

@@ -1,3 +1,4 @@
+import { CustomersComponent } from './components/customers/customers.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 
 import { NgModule } from '@angular/core';
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: "purchase",
         component: PurchaseComponent
+      },
+      {
+        path: "customers",
+        component: CustomersComponent
       },
 
     ]

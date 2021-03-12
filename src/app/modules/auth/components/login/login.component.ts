@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../../../shared/user.service';
-import { User } from '../../../../Models/user';
+import { User } from '../../../../models/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   error: string | null;
   user:User;
-  constructor(private userService:UserService, private route:Router) 
-  { 
+  constructor(private userService:UserService, private route:Router)
+  {
     this.user=new User();
   }
 

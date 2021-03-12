@@ -12,6 +12,8 @@ import { UserService } from '../../../../shared/user.service';
 })
 export class NavComponent implements OnInit {
   userDetails:any;
+
+  isadmin:boolean=false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -22,12 +24,14 @@ export class NavComponent implements OnInit {
      private router: Router,
      private userService:UserService
      ) {}
- 
+
   ngOnInit() {
     this.userService.userClaims().subscribe(
-      res => {
-       // alert(JSON.stringify(res))
+      (res:any) => {
+       console.log(JSON.stringify(res))
+      localStorage.setItem('userDetails',JSON.stringify(res));
         this.userDetails = res;
+        this.isadmin=res.userClaims[0].value=="Adminstrator"?true:false;
       },
       err => {
         console.log(err);
@@ -35,9 +39,11 @@ export class NavComponent implements OnInit {
     );
   }
 
- 
+
   onLogout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('userDetails');
+
     this.router.navigate(['/login']);
   }
 

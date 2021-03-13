@@ -1,4 +1,4 @@
-<form [formGroup]="visitForm" novalidate (ngSubmit)="onSubmit(visitForm.value)">
+<form [formGroup]="visitForm" novalidate #formDirective="ngForm"  (ngSubmit)="onSubmit(visitForm.value,formDirective)">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Visit Information</mat-card-title>

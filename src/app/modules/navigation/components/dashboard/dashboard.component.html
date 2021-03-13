@@ -1,6 +1,7 @@
+
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list cols="2" rowHeight="500">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -16,7 +17,31 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <div *ngIf="card.chart==1">
+
+            <app-my-pie-chart [pieChartLabels]="pieChartLabels1" [pieChartData] ="pieChartData1"></app-my-pie-chart>
+
+
+
+          </div>
+          <div *ngIf="card.chart==2">
+
+
+            <app-my-pie-chart [pieChartLabels]="pieChartLabels2" [pieChartData] ="pieChartData2"></app-my-pie-chart>
+
+
+
+          </div>
+          <div *ngIf="card.chart==3">
+
+            <app-my-pie-chart [pieChartLabels]="pieChartLabels3" [pieChartData] ="pieChartData3"></app-my-pie-chart>
+
+
+
+          </div>
+
+
+
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

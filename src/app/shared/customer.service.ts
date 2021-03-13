@@ -17,9 +17,29 @@ export class CustomerService {
     return this.http.get(this.BaseURI + '/Customers');
   }
 
+  GetCustomersByUID(userId:string){
+    return this.http.get(this.BaseURI + '/Customers/CustomersByUID/'+userId);
+  }
+
   CustomersPurchase( customers:Customer[]){
 
     console.log(JSON.stringify(customers));
     return this.http.put(this.BaseURI + '/Customers/CustomersPurchase',customers);
   }
+
+
+  HeardFromReport(){
+    return this.http.get(this.BaseURI + '/Reports/HeardFrom');
+  }
+///api/Reports/SalesRepresentativeName
+
+SalesRepresentativeNameReport(){
+  return this.http.get(this.BaseURI + '/Reports/SalesRepresentativeName');
+}
+///api/Reports/VehicleModel
+
+VehicleModelReport(){
+  return this.http.get(this.BaseURI + '/Reports/VehicleModel');
+}
+
 }

@@ -31,13 +31,18 @@ import { AuthInterceptor } from '../../interceptors/auth.interceptor';
 import { VisitComponent } from './components/visit/visit.component';
 import { CustomersComponent } from './components/customers/customers.component';
 
+import { ChartsModule } from 'ng2-charts';
+
+import { MyPieChartComponent } from './components/my-pie-chart/my-pie-chart.component';
 
 @NgModule({
   declarations: [NavComponent,
       DashboardComponent,
       VisitComponent,
       PurchaseComponent,
-      CustomersComponent
+      CustomersComponent,
+
+      MyPieChartComponent
     ],
   imports: [
     CommonModule,
@@ -59,6 +64,7 @@ import { CustomersComponent } from './components/customers/customers.component';
     MatGridListModule,
     MatMenuModule,
     HttpClientModule,
+    ChartsModule,
     DragDropModule
   ],
   providers:[

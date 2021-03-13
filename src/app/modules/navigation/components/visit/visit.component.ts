@@ -1,6 +1,6 @@
 import { Customer } from '../../../../models/customer';
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroupDirective, Validators } from '@angular/forms';
 import { CustomerService } from 'src/app/shared/customer.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CustomerService } from 'src/app/shared/customer.service';
   styleUrls: ['./visit.component.scss']
 })
 export class VisitComponent {
-
+  chart = [];
   customer:Customer;
   userDetails:any;
 
@@ -35,7 +35,7 @@ export class VisitComponent {
 
   constructor(private fb: FormBuilder , private customerService:CustomerService) {}
 
-  onSubmit(data) {
+  onSubmit(data,formDirective:FormGroupDirective) {
 
    // {"id":"3a07a471-ae3b-4709-95cc-a347531d5cc8","fullName":"Ahmed Sayed","email":"ahmed@mail.com","userName":"ahmed","userClaims":[{"type":"http://schemas.microsoft.com/ws/2008/06/identity/claims/role","value":"Adminstrator"}]}
 
@@ -58,19 +58,10 @@ export class VisitComponent {
     this.customerService.AddCustomer(this.customer).subscribe(
 
       res=>{alert("sucess")},
-      err=>{alert(JSON.stringify(err))}
+      err=>{alert("Error!")}
     );
-   this.visitForm.reset({
+    formDirective.resetForm();
 
-    customerName:"",
-    address:"",
-    telephone:"",
-    dateofVisit:Date.now(),
-    vehicleModel:0,
-    heardFrom:'Web',
-    other:null,
-
-
-  });
+   this.visitForm.reset();
   }
 }

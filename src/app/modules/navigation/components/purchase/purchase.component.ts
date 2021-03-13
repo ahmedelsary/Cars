@@ -12,7 +12,7 @@ export class PurchaseComponent implements OnInit {
 
   notPurshased :Customer[] = [];
   purshased:Customer[] = [];
-
+  userDetails:any;
   constructor(private customerService:CustomerService,
     private cdRef: ChangeDetectorRef
     ){}
@@ -21,7 +21,11 @@ export class PurchaseComponent implements OnInit {
    }
   ngOnInit() {
 
-    this.customerService.GetCustomers().subscribe(
+
+    this.userDetails= JSON.parse( localStorage.getItem('userDetails'));
+
+
+    this.customerService.GetCustomersByUID(this.userDetails.id).subscribe(
       (res:any)=>{
 
         //  alert(JSON.stringify(res));
